@@ -7,7 +7,6 @@ export const agentsRouter = createTRPCRouter({
         const data = await db
             .select()
             .from(agents);
-
         return data;
     })
 })
