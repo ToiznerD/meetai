@@ -1,7 +1,7 @@
 import { StreamTheme, useCall } from "@stream-io/video-react-sdk"
 import { useState } from "react";
 import { CallLobby } from "./call-lobby";
-import { CallActive } from "./call-ative";
+import { CallActive } from "./call-active";
 import { CallEnded } from "./call-ended";
 
 interface Props {
