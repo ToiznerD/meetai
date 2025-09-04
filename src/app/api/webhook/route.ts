@@ -1,4 +1,4 @@
-import OpenAi, { OpenAI } from "openai";
+import { OpenAI } from "openai";
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { and, eq, not } from "drizzle-orm"
 import { NextRequest, NextResponse } from "next/server";
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest){
             agentUserId: existingAgent.id,
             model: "gpt-4o-realtime-preview",
         })
-        realtimeClient.on('realtime.event', ({ time, source, event }: { time: number, source: string, event: any }) => {
+        realtimeClient.on('realtime.event', ({ event }: { event: any }) => {
             console.log(`got an event from OpenAI ${JSON.stringify(event)}`);
             if (event.type === 'response.audio_transcript.done') {
                 console.log(`got a transcript from OpenAI ${event.transcript}`);
